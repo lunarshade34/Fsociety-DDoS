@@ -1353,16 +1353,16 @@ class MainWindow(QMainWindow):
         try:
             num_requests = int(self.requests_input.text())
         except ValueError:
-            QMessageBox.critical(self, "Fsociety", "❌ Number of requests must be an integer.")
+            QMessageBox.critical(self, "Fsociety", " Number of requests must be an integer.")
             return
 
         if not target_url or num_requests <= 0:
-            QMessageBox.critical(self, "Fsociety", "❌ Please provide a valid URL and number of requests.")
+            QMessageBox.critical(self, "Fsociety", " Please provide a valid URL and number of requests.")
             return
 
         if num_requests > 50000:
             reply = QMessageBox.question(self, "Warning", 
-                                       f"⚠️ You're about to send {num_requests} requests. This may take a while. Continue?",
+                                       f"You're about to send {num_requests} requests. This may take a while. Continue?",
                                        QMessageBox.Yes | QMessageBox.No)
             if reply == QMessageBox.No:
                 return
@@ -1375,9 +1375,9 @@ class MainWindow(QMainWindow):
         self.status_label.setStyleSheet("color: #ff0000; font-weight: bold;")
 
         self.log_message("═" * 60)
-        self.log_message("🚀 FSOCIETY ATTACK INITIATED")
-        self.log_message(f"🎯 Target: {target_url}")
-        self.log_message(f"💣 Requests: {num_requests}")
+        self.log_message("FSOCIETY ATTACK INITIATED")
+        self.log_message(f"Target: {target_url}")
+        self.log_message(f"Requests: {num_requests}")
         self.log_message("═" * 60)
 
         self.attack_thread = AttackThread(target_url, num_requests)
